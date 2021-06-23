@@ -38,7 +38,7 @@ function run_build ()
     && ./build.sh -p $CUBRID $@ clean build) | tee build.log | grep -e '\[[ 0-9]\+%\]' -e ' error: ' || { tail -500 build.log; false; }
   
   #grep "Building failed" $CUBRID_SRCDIR/build.log && exit 1
-  grep "Building failed" $CUBRID_SRCDIR/build.log && echo aaaaa | echo bbbbb
+  grep "Building failed" $CUBRID_SRCDIR/build.log && echo aaaaa || echo bbbbb
 }
 
 function run_dist ()

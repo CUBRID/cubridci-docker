@@ -32,6 +32,8 @@ function run_build ()
     return 1
   fi
 
+  echo "------------------ $CUBRID_SRCDIR/build.log"
+
   (cd $CUBRID_SRCDIR \
     && ./build.sh -p $CUBRID $@ clean build) | tee build.log | grep -e '\[[ 0-9]\+%\]' -e ' error: ' || { tail -500 build.log; false; }
   
